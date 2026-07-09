@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tanvirul Islam — Software Engineer</title>
+<meta name="description" content="Software Engineer focused on AI/ML systems, LLMs, and Model Context Protocol tooling." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #F6F3EC;
+    --ink: #14161A;
+    --rule: #14161A;
+    --muted: #6E6A63;
+    --signal: #B8862E;         /* amber — used once */
+    --grid: rgba(20, 22, 26, 0.06);
+
+    --display: 'Space Grotesk', system-ui, sans-serif;
+    --body: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    --measure: 68rem;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: -1px -1px;
+    min-height: 100vh;
+  }
+
+  .frame {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  /* ── DATASHEET HEADER ────────────────────────────── */
+  .masthead {
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 1rem 0 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+  }
+  .masthead .doc { color: var(--ink); font-weight: 500; }
+
+  /* ── HERO ────────────────────────────────────────── */
+  .hero { padding: clamp(3rem, 8vw, 6rem) 0 clamp(2rem, 5vw, 4rem); }
+
+  .field-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(2.4rem, 7vw, 4.8rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 .accent {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--signal);
+  }
+
+  .thesis {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    line-height: 1.4;
+    max-width: 42rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  /* ── SPEC TABLE ──────────────────────────────────── */
+  .spec {
+    border-top: 1px solid var(--ink);
+    padding: 2rem 0 3rem;
+  }
+
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 0.5rem 2rem;
+    font-size: 0.98rem;
+  }
+
+  .spec-grid dt {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    padding-top: 0.35rem;
+  }
+
+  .spec-grid dd {
+    padding-bottom: 1.1rem;
+    border-bottom: 1px dashed rgba(20, 22, 26, 0.15);
+    margin-bottom: 0.4rem;
+  }
+
+  .spec-grid dd:last-of-type { border-bottom: none; }
+
+  /* ── WORK LIST ───────────────────────────────────── */
+  .work {
+    border-top: 1px solid var(--ink);
+    padding: 2rem 0 3rem;
+  }
+
+  .section-title {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .section-title span:last-child {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .project {
+    display: grid;
+    grid-template-columns: 4rem 1fr auto;
+    gap: 2rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(20, 22, 26, 0.12);
+    align-items: baseline;
+  }
+  .project:last-child { border-bottom: none; }
+
+  .project .idx {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  .project h3 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.35rem;
+  }
+
+  .project p {
+    color: var(--muted);
+    font-size: 0.94rem;
+    line-height: 1.5;
+    max-width: 34rem;
+  }
+
+  .project .tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* ── CONTACT ─────────────────────────────────────── */
+  .contact {
+    border-top: 1px solid var(--ink);
+    padding: 2rem 0 3rem;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem 3rem;
+    list-style: none;
+    margin-top: 1rem;
+  }
+
+  .links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color 0.15s ease, color 0.15s ease;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+  .links a::before {
+    content: '→';
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--signal);
+  }
+  .links a:hover, .links a:focus-visible {
+    border-color: var(--ink);
+    outline: none;
+  }
+  .links a:focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 4px;
+  }
+
+  /* ── FOOTER ──────────────────────────────────────── */
+  footer {
+    border-top: 2px solid var(--ink);
+    padding: 1rem 0;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ── RESPONSIVE ──────────────────────────────────── */
+  @media (max-width: 640px) {
+    .masthead { flex-wrap: wrap; gap: 0.25rem 1rem; font-size: 0.65rem; }
+    .spec-grid { grid-template-columns: 1fr; gap: 0.25rem; }
+    .spec-grid dt { padding-top: 1rem; }
+    .spec-grid dd { padding-bottom: 0.75rem; }
+    .project { grid-template-columns: 2.5rem 1fr; gap: 1rem; }
+    .project .tag { grid-column: 2; margin-top: 0.5rem; }
+    .section-title { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+    footer { flex-direction: column; gap: 0.25rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<main class="frame">
+
+  <div class="masthead" role="banner">
+    <span class="doc">SPEC — TANVIRUL ISLAM / v2026</span>
+    <span>Software Engineer · AI/ML · Australia</span>
+  </div>
+
+  <section class="hero">
+    <span class="field-label">SUBJECT</span>
+    <h1>Building the wiring<br />between <span class="accent">language models</span><br />and real systems.</h1>
+    <p class="thesis">
+      I work on LLM-powered tooling and Model Context Protocol connectors —
+      the plumbing that lets AI agents actually do work inside production platforms.
+    </p>
+  </section>
+
+  <section class="spec" aria-label="Profile">
+    <dl class="spec-grid">
+      <dt>Role</dt>
+      <dd>Software Engineer, WebAlive</dd>
+
+      <dt>Focus</dt>
+      <dd>AI/ML systems, LLM tooling, MCP servers, front-end design</dd>
+
+      <dt>Stack</dt>
+      <dd>Python · FastAPI · TypeScript · React · AWS Bedrock · MCP</dd>
+
+      <dt>Location</dt>
+      <dd>Australia</dd>
+
+      <dt>Status</dt>
+      <dd>Shipping WebCommander's MCP connector layer</dd>
+    </dl>
+  </section>
+
+  <section class="work" aria-label="Current work">
+    <h2 class="section-title">
+      <span>Currently building</span>
+      <span>003 items</span>
+    </h2>
+
+    <article class="project">
+      <div class="idx">01</div>
+      <div>
+        <h3>WebCommander MCP</h3>
+        <p>A Model Context Protocol server that lets Claude deploy pages, manage themes, and update storefronts across a multi-brand CMS — HTML in, live site out.</p>
+      </div>
+      <div class="tag">Python · FastAPI</div>
+    </article>
+
+    <article class="project">
+      <div class="idx">02</div>
+      <div>
+        <h3>Case-based reasoning agent</h3>
+        <p>A Memento-style memory layer that lets the deployment agent learn from prior brand rollouts without retraining — recall over gradient descent.</p>
+      </div>
+      <div class="tag">Research</div>
+    </article>
+
+    <article class="project">
+      <div class="idx">03</div>
+      <div>
+        <h3>Design-to-code pipeline</h3>
+        <p>Front-end tooling that carries design intent through to production storefronts — theme extraction, section libraries, and AI-assisted section design.</p>
+      </div>
+      <div class="tag">TypeScript · React</div>
+    </article>
+  </section>
+
+  <section class="contact" aria-label="Contact">
+    <h2 class="section-title">
+      <span>Elsewhere</span>
+      <span>Find me</span>
+    </h2>
+    <ul class="links">
+      <li><a href="https://github.com/TanvirIslam-BD">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/tanvirul-islam-software-engineer">LinkedIn</a></li>
+      <li><a href="mailto:tanvir1ariyan@gmail.com">Email</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>© 2026 Tanvirul Islam</span>
+    <span>Last revised · Jul 2026</span>
+  </footer>
+
+</main>
+</body>
+</html>
